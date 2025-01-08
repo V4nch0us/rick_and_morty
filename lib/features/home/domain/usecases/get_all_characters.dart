@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import '../../../../core/models/character_response.dart';
 
 import '../../../../core/error/failures.dart';
+import '../../../../core/models/character_response.dart';
 import '../repositories/all_characters_repository.dart';
 
 @injectable

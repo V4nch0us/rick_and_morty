@@ -20,6 +20,8 @@ class AllCharactersBloc extends Bloc<AllCharactersEvent, AllCharactersState> {
         fetch: () async => await _handleEventFetch(emit),
       );
     });
+
+    add(AllCharactersEvent.fetch());
   }
 
   Future<void> _handleEventFetch(Emitter emit) async {

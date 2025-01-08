@@ -11,15 +11,17 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-
-import '../../features/home/data/datasources/all_characters_remote_data_source.dart'
-    as _i227;
-import '../../features/home/data/repositories/all_characters_repository_impl.dart'
-    as _i291;
-import '../../features/home/domain/repositories/all_characters_repository.dart'
-    as _i734;
-import '../../features/home/domain/usecases/get_all_characters.dart' as _i683;
-import '../../features/home/presentation/bloc/all_characters_bloc.dart' as _i34;
+import 'package:rick_and_morty/core/di/module_injection.dart' as _i956;
+import 'package:rick_and_morty/features/home/data/datasources/all_characters_remote_data_source.dart'
+    as _i729;
+import 'package:rick_and_morty/features/home/data/repositories/all_characters_repository_impl.dart'
+    as _i895;
+import 'package:rick_and_morty/features/home/domain/repositories/all_characters_repository.dart'
+    as _i790;
+import 'package:rick_and_morty/features/home/domain/usecases/get_all_characters.dart'
+    as _i353;
+import 'package:rick_and_morty/features/home/presentation/bloc/all_characters_bloc.dart'
+    as _i784;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -32,15 +34,19 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i227.AllCharactersRemoteDataSource>(
-        () => _i227.AllCharactersRemoteDataSourceImpl(gh<_i361.Dio>()));
-    gh.lazySingleton<_i734.AllCharactersRepository>(() =>
-        _i291.AllCharactersRepositoryImpl(
-            gh<_i227.AllCharactersRemoteDataSource>()));
-    gh.factory<_i683.GetAllCharacters>(
-        () => _i683.GetAllCharacters(gh<_i734.AllCharactersRepository>()));
-    gh.factory<_i34.AllCharactersBloc>(
-        () => _i34.AllCharactersBloc(gh<_i683.GetAllCharacters>()));
+    final registerModule = _$RegisterModule();
+    gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
+    gh.lazySingleton<_i729.AllCharactersRemoteDataSource>(
+        () => _i729.AllCharactersRemoteDataSourceImpl());
+    gh.lazySingleton<_i790.AllCharactersRepository>(() =>
+        _i895.AllCharactersRepositoryImpl(
+            gh<_i729.AllCharactersRemoteDataSource>()));
+    gh.factory<_i353.GetAllCharacters>(
+        () => _i353.GetAllCharacters(gh<_i790.AllCharactersRepository>()));
+    gh.factory<_i784.AllCharactersBloc>(
+        () => _i784.AllCharactersBloc(gh<_i353.GetAllCharacters>()));
     return this;
   }
 }
+
+class _$RegisterModule extends _i956.RegisterModule {}

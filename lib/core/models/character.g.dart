@@ -43,14 +43,14 @@ Map<String, dynamic> _$$CharacterImplToJson(_$CharacterImpl instance) =>
 const _$CharacterStatusEnumMap = {
   CharacterStatus.alive: 'Alive',
   CharacterStatus.dead: 'Dead',
-  CharacterStatus.unknown: 'Unknown',
+  CharacterStatus.unknown: 'unknown',
 };
 
 const _$CharacterGenderEnumMap = {
   CharacterGender.male: 'Male',
   CharacterGender.female: 'Female',
   CharacterGender.genderless: 'Genderless',
-  CharacterGender.unknown: 'Unknown',
+  CharacterGender.unknown: 'unknown',
 };
 
 _$OriginImpl _$$OriginImplFromJson(Map<String, dynamic> json) => _$OriginImpl(

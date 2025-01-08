@@ -53,7 +53,7 @@ enum CharacterGender {
   @JsonValue('Genderless')
   genderless,
 
-  @JsonValue('Unknown')
+  @JsonValue('unknown')
   unknown,
 }
 
@@ -64,7 +64,7 @@ enum CharacterStatus {
   @JsonValue('Dead')
   dead,
 
-  @JsonValue('Unknown')
+  @JsonValue('unknown')
   unknown,
 }
 

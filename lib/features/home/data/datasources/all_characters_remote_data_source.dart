@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/di/injectable.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/models/character_response.dart';
 import '../../../../core/network/endpoints.dart';
@@ -11,12 +12,11 @@ abstract class AllCharactersRemoteDataSource {
 
 @LazySingleton(as: AllCharactersRemoteDataSource)
 class AllCharactersRemoteDataSourceImpl implements AllCharactersRemoteDataSource {
-  final Dio _dio;
-
-  AllCharactersRemoteDataSourceImpl(this._dio);
+  final _dio = serviceLocator<Dio>();
 
   @override
   Future<CharacterResponse> getAllCharacters() async {
+    print('sending api request');
     final res = await _dio.get(
       RickAndMortyApiEndpoints.allCharacters,
       options: Options(
