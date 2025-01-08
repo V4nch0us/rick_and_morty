@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/core/models/character.dart';
-import 'package:rick_and_morty/core/ui/app_colors.dart.dart';
-import 'package:rick_and_morty/core/ui/app_text_styles.dart';
+import '../../../../core/models/character.dart';
+import '../../../../core/ui/app_colors.dart.dart';
+import '../../../../core/ui/app_text_styles.dart';
 
 import '../../../../core/navigation/router.dart';
 
@@ -39,8 +39,8 @@ class CharacterCard extends StatelessWidget {
         child: Stack(
           children: [
             SizedBox(
-              height: _cardHight,
-              width: _cardWidth,
+              // height: _cardHight,
+              // width: _cardWidth,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
