@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/models/character_response.dart';
@@ -8,6 +9,7 @@ abstract class AllCharactersRemoteDataSource {
   Future<CharacterResponse> getAllCharacters();
 }
 
+@LazySingleton(as: AllCharactersRemoteDataSource)
 class AllCharactersRemoteDataSourceImpl implements AllCharactersRemoteDataSource {
   final Dio _dio;
 

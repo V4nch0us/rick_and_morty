@@ -1,14 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../domain/usecases/get_all_characters.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/models/character_response.dart';
+import '../../domain/usecases/get_all_characters.dart';
 
+part 'all_characters_bloc.freezed.dart';
 part 'all_characters_event.dart';
 part 'all_characters_state.dart';
-part 'all_characters_bloc.freezed.dart';
 
+@injectable
 class AllCharactersBloc extends Bloc<AllCharactersEvent, AllCharactersState> {
   final GetAllCharacters _getAllCharacters;
 
