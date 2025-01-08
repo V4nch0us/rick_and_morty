@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/core/navigation/router.dart';
+import 'core/navigation/router.dart';
 
 import 'core/ui/app_theme.dart';
 
@@ -12,6 +12,7 @@ class RickAndMortyApp extends StatelessWidget {
       title: 'Rick and Morty',
       theme: theme,
       routerConfig: AppRouterHelper.router,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

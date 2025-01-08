@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/features/details/presentation/pages/details_page.dart';
-import 'package:rick_and_morty/features/home/presentation/pages/home_page.dart';
+import '../../features/details/presentation/pages/details_page.dart';
+import '../../features/home/presentation/pages/home_page.dart';
 
 class AppRoutes {
   static const String homePath = '/';
