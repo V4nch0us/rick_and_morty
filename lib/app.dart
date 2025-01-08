@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'core/navigation/router.dart';
 
+import 'core/navigation/router.dart';
 import 'core/ui/app_theme.dart';
 
 class RickAndMortyApp extends StatelessWidget {
