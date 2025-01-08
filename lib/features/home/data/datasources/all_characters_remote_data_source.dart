@@ -1,9 +1,8 @@
-import '../../../../core/error/exceptions.dart';
-import '../../../../core/network/endpoints.dart';
-
 import 'package:dio/dio.dart';
 
+import '../../../../core/error/exceptions.dart';
 import '../../../../core/models/character_response.dart';
+import '../../../../core/network/endpoints.dart';
 
 abstract class AllCharactersRemoteDataSource {
   Future<CharacterResponse> getAllCharacters();
