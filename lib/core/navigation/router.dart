@@ -6,7 +6,9 @@ import '../../features/home/presentation/pages/home_page.dart';
 
 class AppRoutes {
   static const String homePath = '/';
-  static const String detailsPath = '/details/:id';
+  static const String _detailsPath = '/details/:id';
+
+  get detailsPath => _detailsPath.replaceAll("/:id", '');
 }
 
 class AppRouterHelper {
@@ -27,8 +29,10 @@ class AppRouterHelper {
         builder: (context, state) => HomePage(),
       ),
       GoRoute(
-        path: AppRoutes.detailsPath,
-        builder: (context, state) => DetailsPage(),
+        path: AppRoutes._detailsPath,
+        builder: (context, state) => DetailsPage(
+          id: int.parse(state.pathParameters['id']!),
+        ),
       ),
     ];
 
