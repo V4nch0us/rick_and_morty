@@ -1,5 +1,33 @@
-import '../../../../core/models/character.dart';
+import '../../../../core/error/exceptions.dart';
+import '../../../../core/network/endpoints.dart';
+
+import 'package:dio/dio.dart';
+
+import '../../../../core/models/character_response.dart';
 
 abstract class AllCharactersRemoteDataSource {
-  Future<List<Character>> getAllCharacters();
+  Future<CharacterResponse> getAllCharacters();
+}
+
+class AllCharactersRemoteDataSourceImpl implements AllCharactersRemoteDataSource {
+  final Dio _dio;
+
+  AllCharactersRemoteDataSourceImpl(this._dio);
+
+  @override
+  Future<CharacterResponse> getAllCharacters() async {
+    final res = await _dio.get(
+      RickAndMortyApiEndpoints.allCharacters,
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      ),
+    );
+    if (res.statusCode == 200) {
+      return CharacterResponse.fromJson(res.data);
+    } else {
+      throw ServerException();
+    }
+  }
 }
