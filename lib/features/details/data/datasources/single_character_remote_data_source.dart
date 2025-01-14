@@ -3,21 +3,21 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/di/injectable.dart';
 import '../../../../core/error/exceptions.dart';
-import '../../../../core/models/character_response.dart';
+import '../../../../core/models/character.dart';
 import '../../../../core/network/endpoints.dart';
 
-abstract class AllCharactersRemoteDataSource {
-  Future<CharacterResponse> getAllCharacters();
+abstract class SingleCharacterRemoteDataSource {
+  Future<Character> getCharacter(int id);
 }
 
-@LazySingleton(as: AllCharactersRemoteDataSource)
-class AllCharactersRemoteDataSourceImpl implements AllCharactersRemoteDataSource {
+@LazySingleton(as: SingleCharacterRemoteDataSource)
+class SingleCharacterRemoteDataSourceImpl implements SingleCharacterRemoteDataSource {
   final _dio = serviceLocator<Dio>();
 
   @override
-  Future<CharacterResponse> getAllCharacters() async {
+  Future<Character> getCharacter(int id) async {
     final res = await _dio.get(
-      RickAndMortyApiEndpoints.allCharacters,
+      RickAndMortyApiEndpoints.specificCharacter(id),
       options: Options(
         headers: {
           'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ class AllCharactersRemoteDataSourceImpl implements AllCharactersRemoteDataSource
       ),
     );
     if (res.statusCode == 200) {
-      return CharacterResponse.fromJson(res.data);
+      return Character.fromJson(res.data);
     } else {
       throw ServerException();
     }

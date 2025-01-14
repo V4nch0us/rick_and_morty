@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../widgets/character_card.dart';
+
 import '../../../../core/di/injectable.dart';
 import '../../../../core/ui/app_colors.dart.dart';
 import '../bloc/all_characters_bloc.dart';
+import '../widgets/character_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
