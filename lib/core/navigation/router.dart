@@ -1,45 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:rick_and_morty/core/navigation/router.gr.dart';
 
-import '../../features/details/presentation/pages/details_page.dart';
-import '../../features/home/presentation/pages/home_page.dart';
-
-class AppRoutes {
-  static const String homePath = '/';
-  static const String _detailsPath = '/details/:id';
-
-  get detailsPath => _detailsPath.replaceAll("/:id", '');
-}
-
-class AppRouterHelper {
-  static final AppRouterHelper _instance = AppRouterHelper._internal();
-
-  static late final GoRouter router;
-
-  static final GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
-
-  static AppRouterHelper get instance => _instance;
-
-  factory AppRouterHelper() => _instance;
-
-  AppRouterHelper._internal() {
-    final routes = [
-      GoRoute(
-        path: AppRoutes.homePath,
-        builder: (context, state) => HomePage(),
-      ),
-      GoRoute(
-        path: AppRoutes._detailsPath,
-        builder: (context, state) => DetailsPage(
-          id: int.parse(state.pathParameters['id']!),
-        ),
-      ),
-    ];
-
-    router = GoRouter(
-      routes: routes,
-      initialLocation: AppRoutes.homePath,
-      navigatorKey: parentNavigatorKey,
-    );
-  }
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
+class AppRouter extends RootStackRouter {
+  @override
+  List<AutoRoute> get routes => [
+        AutoRoute(page: HomeRoute.page, initial: true),
+        AutoRoute(page: DetailsRoute.page),
+      ];
 }

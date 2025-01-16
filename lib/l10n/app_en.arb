@@ -1,0 +1,16 @@
+{
+    "applicationTitle": "Rick and Morty",
+    "infoIconPath": "assets/icons/information.png",
+    "genderMaleIconPath": "assets/icons/gender_male.png",
+    "genderFemaleIconPath": "assets/icons/gender_female.png",
+    "genderUnknownIconPath": "assets/icons/gender_unknown.png",
+    "statusAliveIconPath": "assets/icons/status_alive.png",
+    "statusDeadIconPath": "assets/icons/status_dead.png",
+    "statusUnknownIconPath": "assets/icons/status_unknown.png",
+    "speciesHumanIconPath": "assets/icons/species_human.png",
+    "speciesAlienIconPath": "assets/icons/species_alien.png",
+    "detailsLabelName": "Name",
+    "detailsLabelStatus": "Status",
+    "detailsLabelSpecies": "Species",
+    "detailsLabelGender": "Gender"
+}

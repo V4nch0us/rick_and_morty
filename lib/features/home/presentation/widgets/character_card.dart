@@ -1,9 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:rick_and_morty/core/navigation/router.gr.dart';
 
 import '../../../../core/models/character.dart';
-import '../../../../core/navigation/router.dart';
 import '../../../../core/ui/app_colors.dart.dart';
 import '../../../../core/ui/app_text_styles.dart';
 
@@ -26,7 +26,7 @@ class CharacterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () async => await context.push('${AppRoutes().detailsPath}/${character.id}'),
+      onTap: () => AutoRouter.of(context).push(DetailsRoute(id: character.id)),
       child: Card(
         elevation: 0,
         color: AppColors.white,
